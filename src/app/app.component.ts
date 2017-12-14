@@ -16,7 +16,16 @@ export class MyApp {
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(
+    public platform: Platform,
+    public statusBar: StatusBar,
+    public splashScreen: SplashScreen,
+    private _tokenService: Angular2TokenService
+  ) {
+    this._tokenService.init({
+      apiBase: 'https://your-cooper-api.herokuapp.com/api/v1'
+    });
+
     this.initializeApp();
 
     this.pages = [
