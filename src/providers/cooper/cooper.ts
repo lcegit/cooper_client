@@ -3,9 +3,20 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class CooperProvider {
-  constructor() {
-    console.log('Hello CooperProvider Provider');
+  constructor(
+    public navCtrl: NavController,
+    public person: PersonProvider
+  ) {
+    this.user = { distance: 1000, age: 20, gender: 'female' };
   }
+
+calculate() {
+  this.person.age = this.user.age;
+  this.person.gender = this.user.gender;
+
+  this.person.doAssessment(this.user.distance);
+  console.log(this.person.assessmentMessage);
+}
 
   private ratings: any = [
     'Excellent',
