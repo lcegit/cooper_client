@@ -2,6 +2,8 @@ import { PerfomanceDataProvider } from '../../providers/perfomance-data/perfoman
 import { PersonProvider } from '../../providers/person/person';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { ModalController, NacParams } from 'ionic-angular';
+import { ResultsPage } from '../pages/results/results';
 
 @Component({
   selector: 'page-home',
@@ -10,7 +12,7 @@ import { NavController } from 'ionic-angular';
 export class HomePage {
   user: any = {};
 
-  constructor(public navCtrl: NavController, public person: PersonProvider) {
+  constructor(public navCtrl: NavController, public person: PersonProvider, public modalCtrl: ModalController) {
     this.user = { distance: 1000, age: 20, gender: 'female' };
   }
 
@@ -20,4 +22,9 @@ export class HomePage {
       .saveData({ performance_data: { data: { message: this.person.assessmentMessage } } })
       .subscribe(data => console.log(data));
   }
+
+    showResults() {
+    this.modalCtrl.create(ResultsPage).present();
+  }
+
 }
