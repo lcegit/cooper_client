@@ -14,7 +14,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { PersonProvider } from '../providers/person/person';
 import { CooperProvider } from '../providers/cooper/cooper';
-import { PerfomanceDataProvider } from '../providers/perfomance-data/perfomance-data';
+import { PerformanceDataProvider } from '../providers/performance-data/performance-data';
 
 @NgModule({
   declarations: [
@@ -41,7 +41,7 @@ import { PerfomanceDataProvider } from '../providers/perfomance-data/perfomance-
     PersonProvider,
     CooperProvider,
     Angular2TokenService,
-    PerfomanceDataProvider
+    PerformanceDataProvider
   ]
 })
 export class AppModule {}
